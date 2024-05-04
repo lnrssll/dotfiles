@@ -1,0 +1,17 @@
+#!/bin/sh
+
+USER=lane
+HOST=minifridge.lan
+
+SITE_DIR=$(basename "$PWD")
+
+hugo
+find ./public/images \( -name "*.png" -o -name "*.jpeg" \) -exec chmod 644 {} \;
+# this will delete everything on the server that's not in the local public folder 
+rsync -avz --delete --progress public/ /var/www/${SITE_DIR}
+
+# old, for video
+# VIDEO_DIR=video
+# rsync -avz --progress video/ ${USER}@${HOST}:~/${VIDEO_DIR}
+
+exit 0
