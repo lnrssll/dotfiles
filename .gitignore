@@ -9,6 +9,7 @@
 
 .local/share/*
 !/.local/share/larbs
+!/.local/share/launchctl
 .local/state
 
 .gemrc
