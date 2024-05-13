@@ -1,0 +1,9 @@
+[submodule ".qutebrowser/qutebrowser"]
+	path = .qutebrowser/qutebrowser
+	url = https://github.com/catppuccin/qutebrowser.git
+[submodule ".qutebrowser/catppuccin"]
+	path = .qutebrowser/catppuccin
+	url = https://github.com/catppuccin/qutebrowser.git
+[submodule ".config/alacritty/themes"]
+	path = .config/alacritty/themes
+	url = https://github.com/alacritty/alacritty-theme.git

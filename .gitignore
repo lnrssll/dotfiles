@@ -1,0 +1,16 @@
+.config/zsh/*
+!/.config/zsh/.zshrc
+.config/tmux/plugins
+.config/github-copilot
+.config/nvm
+.config/op
+.qutebrowser/bookmarks
+.qutebrowser/quickmarks
+
+.local/share/*
+!/.local/share/larbs
+.local/state
+
+.gemrc
+
+# need submodules for alacritty and qutebrowser themes

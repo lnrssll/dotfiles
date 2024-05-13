@@ -1,13 +1,15 @@
-# Luke's config for the Zoomer Shell
+# Lane's config for the Zoomer Shell
+
 export ZSH="$ZDOTDIR/ohmyzsh"
+
 # ZSH_THEME="robbyrussell"
-plugins=(git fast-syntax-highlighting)
+
+plugins=(rails docker 1password)
 
 source $ZSH/oh-my-zsh.sh
 
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
 setopt interactive_comments
@@ -52,30 +54,6 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
-# path
-
-# nvim
-path+=('/usr/local/nvim-linux64/bin')
-
-# cuda
-export LD_LIBRARY_PATH=/usr/local/cuda-12.3/lib64
-export GLPATH=/usr/lib
-path+=('/usr/local/cuda-12.3/bin')
-
-# Java
-export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64/bin/java"
-path+=("$JAVA_HOME/bin")
-path+=('/usr/local/jdtls/bin')
-
-# Ruby
-path+=('$HOME/.rbenv/bin')
-eval "$(rbenv init -)"
-
-# nvm
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # Change cursor shape for different vi modes.
 function zle-keymap-select () {
     case $KEYMAP in
@@ -117,11 +95,20 @@ bindkey -M vicmd '^[[P' vi-delete-char
 bindkey -M vicmd '^e' edit-command-line
 bindkey -M visual '^[[P' vi-delete
 
-# load fzf integration
-# source /usr/share/fzf/key-bindings.zsh
-# source /usr/share/fzf/completion.zsh
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-source /usr/share/doc/fzf/examples/completion.zsh
+# nvm
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Load syntax highlighting; should be last.
-# source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+# rbenv
+eval "$(rbenv init -)"
+
+eval "$(starship init zsh)"
+eval "$(fzf --zsh)"
+eval "$(op completion zsh)"; compdef _op op
+
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

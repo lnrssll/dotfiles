@@ -1,6 +1,8 @@
 #!/bin/sh
 # shellcheck disable=SC2155
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Profile file, runs on login. Environmental variables are set here.
 
 # Add all directories in `~/.local/bin` to $PATH
