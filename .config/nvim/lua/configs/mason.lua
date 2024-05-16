@@ -20,6 +20,7 @@ local mason = {
 
     "solargraph",
     "rubocop",
+    "ruby-lsp",
   },
 }
 

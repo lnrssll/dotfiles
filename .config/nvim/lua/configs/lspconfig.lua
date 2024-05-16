@@ -14,8 +14,9 @@ local servers = {
   "tsserver",
   "clangd",
   "solargraph",
+  "ruby_lsp",
   "pyright",
-  "pylsp"
+  "pylsp",
 }
 
 -- lsps with default config

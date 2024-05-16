@@ -165,10 +165,16 @@ c.url.searchengines = {
     "e": "https://ebay.com/sch/i.html?_nkw={}",
     "a": "https://www.amazon.com/s?k={}",
     "w": "https://en.wikipedia.org/w/index.php?search={}",
+    "rb": "https://duckduckgo.com/?q=site%3Arubydoc.info+{}",
 }
 c.url.start_pages = ["https://news.ycombinator.com/"]
 c.colors.webpage.darkmode.enabled = True
 c.colors.webpage.preferred_color_scheme = "dark"
 c.colors.webpage.darkmode.policy.images = "never"
+
+config.bind("c", "open -t https://chatgpt.com")
+config.bind("p", "open -t https://mail.proton.me")
+config.bind("C-l", "open -t localhost:3000")
+config.bind("C-g", "open -t https://github.com")
 
 catppuccin.setup(c, 'mocha', True)

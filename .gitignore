@@ -11,6 +11,7 @@
 !/.local/share/larbs
 !/.local/share/launchctl
 .local/state
+.local/src
 
 .gemrc
 
